@@ -1,6 +1,4 @@
 import React from 'react';
-import Hello from './Hello.js';
-import Counter from './Counter.js';
 import FetchData from './FetchData.js';
 import AppBar from 'material-ui/AppBar';
 import TextFieldExample from './TextFieldExample.js';
@@ -28,7 +26,7 @@ class App extends React.Component {
 			</Toolbar>
 		</AppBar>
 		<FetchData />
-		<TextFieldExample />
+	
       </div>
     );
   }

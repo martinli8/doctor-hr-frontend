@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Button from 'material-ui/Button';
+import TextField from 'material-ui/TextField';
 
 var styles = {
 	"dataStyle": {
@@ -15,7 +16,17 @@ class FetchData extends React.Component {
 		super();
 		this.state = {
 			"heart_rates": ["Nothing yet"],
+			"nameTextField": "",
 		};
+	}
+
+	onNameTextFieldChange = (event) => {
+		// Update the nameTextField state whenever the text field is changed or perturbed in any way:
+		this.setState({"nameTextField": event.target.value});
+	}
+
+	onButtonClick = (event) => {
+		console.log(this.state.nameTextField); // log the current nameTextField content
 	}
 
 	getData = () => {
@@ -37,7 +48,16 @@ class FetchData extends React.Component {
 				<div style={styles.dataStyle}>
 					{this.state.heart_rates}
 				</div>
+				<TextField
+					value={this.state.nameTextField}
+					onChange={this.onNameTextFieldChange}/>
+				<Button onClick={this.onButtonClick}>
+					Store this email for API get call
+				</Button>
+				{this.state.nameTextField /*show the current nameTextField state here in the browser */}
+
 			</div>
+
 		)
 	}
 }
