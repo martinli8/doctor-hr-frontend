@@ -22,7 +22,8 @@ class FetchData extends React.Component {
 		axios.get("http://vcm-3590.vm.duke.edu:5000/api/heart_rate/me@hello.com").then( (response) => {
 			console.log(response);
 			console.log(response.status);
-			this.setState({"heart_rates": response.data});
+			console.log(JSON.stringify(response.data))
+			this.setState({"heart_rates": JSON.stringify(response.data)})
 		})
 	}
 
@@ -34,7 +35,7 @@ class FetchData extends React.Component {
 				</Button>
 
 				<div style={styles.dataStyle}>
-					{this.state.data[0]}
+					{this.state.heart_rates}
 				</div>
 			</div>
 		)

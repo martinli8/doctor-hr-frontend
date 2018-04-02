@@ -6,7 +6,7 @@ class TextFieldExample extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			"nameTextField": "", // This is where the content for the TextField used below is stored 
+			"nameTextField": "", // This is where the content for the TextField used below is stored
 		}
 	}
 
@@ -22,13 +22,13 @@ class TextFieldExample extends React.Component {
 	render() {
 		return (
 			<div>
-				<TextField 
+				<TextField
 					value={this.state.nameTextField}
 					onChange={this.onNameTextFieldChange}/>
 				<Button onClick={this.onButtonClick}>
-					Log text field data.
+					Store this email for API get call
 				</Button>
-				{this.state.nameTextField /*show the current nameTextField state here in the browser */} 
+				{this.state.nameTextField /*show the current nameTextField state here in the browser */}
 			</div>
 		);
 	}
