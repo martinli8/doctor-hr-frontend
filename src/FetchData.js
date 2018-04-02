@@ -30,7 +30,13 @@ class FetchData extends React.Component {
 	}
 
 	getData = () => {
-		axios.get("http://vcm-3590.vm.duke.edu:5000/api/heart_rate/me@hello.com").then( (response) => {
+		var firsthalf = "http://vcm-3590.vm.duke.edu:5000/api/heart_rate/"
+		var email = this.state.nameTextField
+		console.log(email)
+		console.log(firsthalf)
+		var combined = firsthalf+email
+		console.log(combined)
+		axios.get(combined).then( (response) => {
 			console.log(response);
 			console.log(response.status);
 			console.log(JSON.stringify(response.data))
@@ -41,6 +47,14 @@ class FetchData extends React.Component {
 	render() {
 		return (
 			<div>
+
+				<TextField
+					value={this.state.nameTextField}
+					onChange={this.onNameTextFieldChange}/>
+				<Button onClick={this.onButtonClick}>
+					Store this email for API get call (click this button)
+				</Button>
+				
 				<Button variant="raised" onClick={this.getData}>
 					Get Data
 				</Button>
@@ -48,14 +62,6 @@ class FetchData extends React.Component {
 				<div style={styles.dataStyle}>
 					{this.state.heart_rates}
 				</div>
-				<TextField
-					value={this.state.nameTextField}
-					onChange={this.onNameTextFieldChange}/>
-				<Button onClick={this.onButtonClick}>
-					Store this email for API get call
-				</Button>
-				{this.state.nameTextField /*show the current nameTextField state here in the browser */}
-
 			</div>
 
 		)
